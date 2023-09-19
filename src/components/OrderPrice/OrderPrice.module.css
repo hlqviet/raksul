@@ -1,0 +1,7 @@
+.orderPrice {
+  text-align: right;
+}
+
+.orderPrice span {
+  margin-right: 1rem;
+}

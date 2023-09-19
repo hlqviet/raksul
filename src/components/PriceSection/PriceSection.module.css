@@ -1,0 +1,31 @@
+.priceSection {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.leftPane {
+  margin-bottom: 1rem;
+}
+
+.rightPane {
+  margin-top: 1rem;
+}
+
+.orderPrice {
+  margin-top: 2rem;
+}
+
+@media screen and (min-width: 900px) {
+  .leftPane {
+    width: 30%;
+    max-width: 25rem;
+    margin-right: 1rem;
+    margin-bottom: 0;
+  }
+
+  .rightPane {
+    margin-top: 0;
+    margin-left: 1rem;
+    flex: 1;
+  }
+}
