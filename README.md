@@ -1,4 +1,13 @@
-# Getting Started with Create React App
+# Raksul Work Sample
+
+Time spent:
+
+- Setting up the project with common functions, components, hooks and contexts: 2 hours
+- Core functionality: 30 minutes
+- Add-on functionality: 30 minutes
+- Number format: 15 minutes
+
+---
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
