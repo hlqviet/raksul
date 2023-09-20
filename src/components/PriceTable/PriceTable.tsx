@@ -1,5 +1,6 @@
 import { useContext, useState } from 'react'
 
+import { formatNumberWithCommas } from '../../common/utils'
 import { PriceContext, setSelectedPrice } from '../../contexts/PriceContext'
 import { Price } from '../../models/price'
 import { Table, TableBody, TableCell } from '../Table'
@@ -85,7 +86,7 @@ const PriceTable = (props: PriceTableProps) => {
                   onMouseOver={() =>
                     setHoveringPosition([rowIndex, columnIndex])
                   }>
-                  {price}
+                  {formatNumberWithCommas(price)}
                 </TableCell>
               )
             )}

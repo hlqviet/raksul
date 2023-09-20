@@ -1,5 +1,6 @@
 import { useContext } from 'react'
 
+import { formatNumberWithCommas } from '../../common/utils'
 import { PriceContext } from '../../contexts/PriceContext'
 import Button from '../Button'
 import styles from './OrderPrice.module.css'
@@ -9,7 +10,11 @@ const OrderPrice = () => {
 
   return (
     <div className={styles.orderPrice}>
-      <span>Order price: {selectedPrice?.value}</span> <Button>Cart</Button>
+      <span>
+        Order price:{' '}
+        {selectedPrice && formatNumberWithCommas(selectedPrice.value)}
+      </span>{' '}
+      <Button>Cart</Button>
     </div>
   )
 }
