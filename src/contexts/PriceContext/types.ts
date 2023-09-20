@@ -4,13 +4,17 @@ export enum PriceTypes {
 
 interface SetSelectedPriceAction {
   type: typeof PriceTypes.SET_SELECTED_PRICE
-  payload: { position: [number, number]; value: number }
+  payload?: { position: [number, number]; value: number }
 }
 
-export const setSelectedPrice = (selectedPrice: {
-  position: [number, number]
-  value: number
-}): SetSelectedPriceAction => ({
+export const setSelectedPrice = (
+  selectedPrice:
+    | {
+        position: [number, number]
+        value: number
+      }
+    | undefined
+): SetSelectedPriceAction => ({
   type: PriceTypes.SET_SELECTED_PRICE,
   payload: selectedPrice
 })

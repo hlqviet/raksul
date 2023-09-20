@@ -10,13 +10,15 @@ import {
   PaperSizeContext,
   setPaperSize as setPaperSizeAction
 } from '../../contexts/PaperSizeContext'
+import { PriceContext, setSelectedPrice } from '../../contexts/PriceContext'
 import Button from '../Button'
 import Select from '../Select'
 import styles from './PaperSizeSelection.module.css'
 
 const PaperSizeSelection = () => {
-  const [state, dispatch] = useContext(PaperSizeContext)
-  const [paperSize, setPaperSize] = useState(state.paperSize)
+  const [paperSizeState, paperSizeDispatch] = useContext(PaperSizeContext)
+  const [, priceDispatch] = useContext(PriceContext)
+  const [paperSize, setPaperSize] = useState(paperSizeState.paperSize)
 
   const handlePaperSizeChange: ChangeEventHandler<HTMLSelectElement> = (
     event
@@ -29,9 +31,10 @@ const PaperSizeSelection = () => {
   }
 
   const handleClick: MouseEventHandler<HTMLButtonElement> = () => {
-    if (paperSize === state.paperSize) return
+    if (paperSize === paperSizeState.paperSize) return
 
-    dispatch(setPaperSizeAction(paperSize as PaperSize))
+    paperSizeDispatch(setPaperSizeAction(paperSize as PaperSize))
+    priceDispatch(setSelectedPrice(undefined))
   }
 
   return (
