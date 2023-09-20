@@ -9,7 +9,7 @@ const OrderPrice = () => {
 
   return (
     <div className={styles.orderPrice}>
-      <span>Order price: {selectedPrice}</span> <Button>Cart</Button>
+      <span>Order price: {selectedPrice?.value}</span> <Button>Cart</Button>
     </div>
   )
 }

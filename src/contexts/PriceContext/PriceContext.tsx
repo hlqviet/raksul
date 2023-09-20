@@ -9,7 +9,10 @@ import {
 import { PriceActionTypes, PriceTypes } from './types'
 
 interface PriceState {
-  selectedPrice?: [number, number]
+  selectedPrice?: {
+    position: [number, number]
+    value: number
+  }
 }
 
 type PriceContextType = [PriceState, Dispatch<PriceActionTypes>]

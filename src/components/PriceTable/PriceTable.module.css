@@ -2,6 +2,19 @@
   margin: 1rem 0;
 }
 
+.tableCell:hover {
+  background-color: #bbbbbb;
+  cursor: pointer;
+}
+
 .fontBold {
   font-weight: bold;
+}
+
+.tableCell.highlight {
+  background-color: #4d4d4d;
+}
+
+.weakHighlight {
+  background-color: #bbbbbb;
 }
