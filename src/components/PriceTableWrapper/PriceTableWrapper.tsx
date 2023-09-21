@@ -1,6 +1,7 @@
 import { useContext, useState } from 'react'
 
 import { PaperSizeContext } from '../../contexts/PaperSizeContext'
+import { PriceContext, setSelectedPrice } from '../../contexts/PriceContext'
 import useGetPricesQuery from '../../hooks/useGetPricesQuery'
 import Button from '../Button'
 import PriceTable from '../PriceTable/PriceTable'
@@ -8,6 +9,7 @@ import styles from './PriceTableWrapper.module.css'
 
 const PriceTableWrapper = () => {
   const [{ paperSize }] = useContext(PaperSizeContext)
+  const [{ selectedPrice }, priceDispatch] = useContext(PriceContext)
   const { loading, error, data } = useGetPricesQuery({ paperSize })
   const [showMore, setShowMore] = useState(false)
 
@@ -17,6 +19,16 @@ const PriceTableWrapper = () => {
 
   const handleClick = () => {
     setShowMore(!showMore)
+
+    if (!showMore || !selectedPrice) return
+
+    const {
+      position: [rowIndex]
+    } = selectedPrice
+
+    if (rowIndex < 5) return
+
+    priceDispatch(setSelectedPrice(undefined))
   }
 
   return (
